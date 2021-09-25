@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users,
-   controllers: { registrations: 'registrations' }
+    controllers: { registrations: 'registrations' }
 
   root 'posts#index'
 
@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
  resources :posts, only: [:new, :create, :index, :show, :destroy] do
    resources :photos, only: [:create]
- end
+    resources :likes, only: [:create, :destroy]
+  end
 end
